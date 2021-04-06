@@ -1,0 +1,20 @@
+<!-- <p>Votre nom : <input type="text" [value]="name" #nameInput (input)="name = nameInput.value"></p> -->
+<input type="text" [(ngModel)]="name">
+
+
+<p>{{name}}</p><label for="">Nombre de personnes : </label>
+<app-choice-nb [nb]="nbPersons" [max]="8" (nbModify)="nbPersons = $event"></app-choice-nb>
+
+
+
+<p>
+    <select [(ngModel)]="roomNumber">
+        <option value="1">La salle 1</option>
+        <option value="2">La salle 2</option>
+        <option value="3">La salle 3</option>
+    </select>
+</p>
+<p>Code Réduction : <input type="text" #reducInput (input)="checkReduc(reducInput.value)"></p>
+<p>Prix total : {{ totalPrice }} €</p>
+<p>Prix par personne : {{ calculatePrice() }} €</p>
+<button (click)="validate()">Réserver</button>

@@ -1,0 +1,23 @@
+.card.virtual{
+  background-color: grey;
+}
+
+.card-img-top {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-body {
+  position: relative;
+
+  .players {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+  }
+}

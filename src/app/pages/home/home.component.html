@@ -1,0 +1,26 @@
+<h1>{{ title }}</h1>
+
+
+<app-slides></app-slides>
+
+
+
+
+<ul>
+  <li>{{ nbClassicRooms }} salles classiques</li>
+  <li>{{ nbVirtualRooms }} salles réalités virtuelles</li>
+  <li>{{ nbClassicRooms + nbVirtualRooms }} salles</li>
+  <li>soit {{ (nbClassicRooms + nbVirtualRooms) * 60}} minutes de recherche</li>
+  <li>de {{ ageMin }} à {{ ageMax }} ans</li>
+  <li>{{ lastLi() }}</li>
+</ul>
+
+<h2>Réservation :</h2>
+<app-reservation></app-reservation>
+
+<h2>Les meilleurs salles</h2>
+  <div class="row">
+    <div class="col-xs-12 col-md-6" *ngFor="let r of rooms; let i = index" [hidden]="i > 1">
+      <app-room [room]="r"></app-room>
+    </div>
+  </div>

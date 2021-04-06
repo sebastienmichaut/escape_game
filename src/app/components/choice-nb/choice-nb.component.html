@@ -1,0 +1,3 @@
+<button class="btn btn-primary" (click)="substract()" [disabled]="nb == min">-</button>
+{{ nb }}
+<button class="btn btn-primary" (click)="nb = nb + 1; nbModify.emit(nb)" [disabled]="nb == max">+</button>

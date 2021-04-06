@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Login</h1>
+  <form #loginForm="ngForm">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="exampleInputEmail1" #emailFC="ngModel" [(ngModel)]="email" required [email]="true" [minlength]="10">
+      <small class="text-danger" *ngIf="emailFC.touched && emailFC.errors?.required">Email manquant</small>
+      <small class="text-danger" *ngIf="emailFC.errors?.email">Format email invalide</small>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+      <input type="password" name="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="validate()" [disabled]="loginForm.invalid">Valider</button>
+  </form>
+
+</div>

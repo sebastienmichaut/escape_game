@@ -1,0 +1,31 @@
+
+<div class="card" [ngClass]="{'virtual' : room.isVirtual}">
+  <img [src]="room.imageUrl" class="card-img-top" [alt]="room.imageAlt">
+  <div class="card-body">
+    <h5 class="card-title">{{ room.title }}</h5>
+    <h6>Difficulté :
+       <span [ngClass]="{'text-success': room.difficulty === 1, 'text-warning': room.difficulty === 2, 'text-danger': room.difficulty === 3}">{{ room.difficulty }}</span></h6>
+    <div class="players">
+      <span>
+        De {{ room.nbMin }} à {{ room.nbMax }}
+        <br>
+        joueurs
+      </span>
+    </div>
+    <div>
+      Horaires :
+      <span *ngFor="let time of room.times">
+        {{ time }}
+      </span>
+    </div>
+    <button class ="btn btn-primary" (click)="toggleDescription()" *ngIf="room.description !== undefined">
+    <span *ngIf="descriptionIsVisible == false">Voir la description</span>
+    <span *ngIf="descriptionIsVisible == true">Cacher la description</span>
+    </button>
+    <p class="card-text" *ngIf="descriptionIsVisible">
+     {{ room.description }}
+    </p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>
+

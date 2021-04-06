@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Les salles</h1>
+
+  <p>
+    Difficulté minimum : <app-choice-nb [nb]="difficultyMin" [max]="3" (nbModify)="difficultyMin = $event"></app-choice-nb>
+  </p>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-md-6" *ngFor="let r of rooms" [hidden]="!(r.difficulty >= difficultyMin)">
+      <app-room [room]="r"></app-room>
+    </div>
+  </div>
+
+<h2>Liste</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Difficulté</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of rooms; let i =index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ room.title }}</td>
+      <td>{{ room.difficulty }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
